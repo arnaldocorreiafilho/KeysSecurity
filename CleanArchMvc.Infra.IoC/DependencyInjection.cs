@@ -19,13 +19,11 @@ namespace CleanArchMvc.Infra.IoC
              options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"
             ), b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
 
-            services.AddScoped<ICategoryRepository, CategoryRepository>();
-            services.AddScoped<IProductRepository, ProductRepository>();
-            services.AddScoped<ICategoryRepository, CategoryRepository>();
-            services.AddScoped<IProductRepository, ProductRepository>();
+            
+            services.AddScoped<IKeysRepository, KeyRepository>();
 
-            services.AddScoped<IProductService, ProductServiceDto>();
-            services.AddScoped<ICategoryService, CategoryServiceDto>();
+            
+            services.AddScoped<IKeysService, KeysServiceDto>();
             services.AddAutoMapper(typeof(DomainToDTOMappingProfile));
 
             return services;

@@ -1,42 +1,38 @@
 ﻿using CleanArchMvc.Application.Interfaces;
-using CleanArchMvc.Application.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace CleanArchMvc.WebUI.Controllers
 {
-    public class CategoriesController : Controller
+    public class KeysController : Controller
     {
-
-        private ICategoryService categoryService;
-
-        public CategoriesController(ICategoryService categoryService)
+        IKeysService keyService;
+        // GET: ProductsController
+        public KeysController(IKeysService keyService)
         {
-            this.categoryService = categoryService;
-
+            this.keyService = keyService ;
         }
-        // GET: CategoriesController
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var categories = await categoryService.GetCategories();
-            return View(categories);
+            var products = await this.keyService.GetKeys();
+            return View(products);
         }
 
-        // GET: CategoriesController/Details/5
+        // GET: ProductsController/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: CategoriesController/Create
+        // GET: ProductsController/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: CategoriesController/Create
+        // POST: ProductsController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -51,13 +47,13 @@ namespace CleanArchMvc.WebUI.Controllers
             }
         }
 
-        // GET: CategoriesController/Edit/5
+        // GET: ProductsController/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: CategoriesController/Edit/5
+        // POST: ProductsController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -72,13 +68,13 @@ namespace CleanArchMvc.WebUI.Controllers
             }
         }
 
-        // GET: CategoriesController/Delete/5
+        // GET: ProductsController/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: CategoriesController/Delete/5
+        // POST: ProductsController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
