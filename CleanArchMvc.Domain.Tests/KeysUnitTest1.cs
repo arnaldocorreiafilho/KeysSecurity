@@ -2,19 +2,23 @@ using Xunit;
 using CleanArchMvc.Domain.Entities;
 using FluentAssertions;
 using System;
+using CleanArchMvc.Application.Interfaces;
+
 namespace CleanArchMvc.Domain.Tests
 {
-    public class CategoryUnitTest1
+    public class KeysUnitTest1
     {
+       
+
         [Fact(DisplayName="Create Category with validState")]
         public void CreateCategory_WithValidParamenter_ResultValidState()
         {
-            Action action = () => new Category(1, "Category Name ");
-            action.Should()
-                 .NotThrow<CleanArchMvc.Domain.Validation.DomainExceptionValidation>();
+            var k = new Keys("teste","valor");
+            k.GenerateHash();            
+            Assert.Equal("23caf69ac2c62e21865d9ed78fe9f89f",k.Hash);
         }
 
-        [Fact(DisplayName = "Create Category with InvalidState")]
+       /* [Fact(DisplayName = "Create Category with InvalidState")]
         public void CreateCategory_WithNegativeParamenter_ResultInValidState()
         {
             Action action = () => new Category(-1, "Category Name ");
@@ -37,6 +41,6 @@ namespace CleanArchMvc.Domain.Tests
             action.Should()
                  .Throw<CleanArchMvc.Domain.Validation.DomainExceptionValidation>().
                  WithMessage("The name is required.");
-        }
+        }*/
     }
 }
