@@ -1,4 +1,5 @@
-﻿using CleanArchMvc.Application.Interfaces;
+﻿using CleanArchMvc.Application.DTOs;
+using CleanArchMvc.Application.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -16,8 +17,8 @@ namespace CleanArchMvc.WebUI.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var products = await this.keyService.GetKeys();
-            return View(products);
+            var keysDTOs = await this.keyService.GetKeys();
+            return View(keysDTOs);
         }
 
         // GET: ProductsController/Details/5
@@ -29,6 +30,7 @@ namespace CleanArchMvc.WebUI.Controllers
         // GET: ProductsController/Create
         public ActionResult Create()
         {
+
             return View();
         }
 
@@ -37,9 +39,12 @@ namespace CleanArchMvc.WebUI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
         {
-            try
+            try            
             {
+                var keys = new KeysDTO(collection["Key"].ToString(),collection["Value"].ToString());                
+                this.keyService.Create(keys);
                 return RedirectToAction(nameof(Index));
+                
             }
             catch
             {
