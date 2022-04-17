@@ -4,14 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace CleanArchMvc.Application.DTOs
 {
     public class KeysDTO
-    {
-        
-        
-        public KeysDTO(string key, string value)
-        {
-            this.Key = key;
-            this.Value = value;
-        }
+    {     
 
         public int Id { get; set; }
 
@@ -21,7 +14,7 @@ namespace CleanArchMvc.Application.DTOs
         [DisplayName("Key")]
         public string Key { get; set; }
 
-        [Required(ErrorMessage = "The Key is Required")]
+        [Required(ErrorMessage = "The value is Required")]
         [MinLength(3)]
         [MaxLength(100)]
         [DisplayName("Value")]

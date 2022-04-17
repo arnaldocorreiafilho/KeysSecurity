@@ -1,4 +1,5 @@
-﻿using CleanArchMvc.Application.Interfaces;
+﻿using CleanArchMvc.Application.DTOs;
+using CleanArchMvc.Application.Interfaces;
 using CleanArchMvc.Application.Mappings;
 using CleanArchMvc.Application.Services;
 using CleanArchMvc.Domain.Interfaces;
@@ -21,8 +22,8 @@ namespace CleanArchMvc.Infra.IoC
 
             
             services.AddScoped<IKeysRepository, KeyRepository>();
+           
 
-            
             services.AddScoped<IKeysService, KeysServiceDto>();
             services.AddAutoMapper(typeof(DomainToDTOMappingProfile));
 

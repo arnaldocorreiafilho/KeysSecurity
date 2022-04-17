@@ -52,7 +52,7 @@ namespace CleanArchMvc.WebUI
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Keys}/{action=Create}/{id?}");
+                    pattern: "{controller=Keys}/{action=index}/{id?}");
             });
         }
     }

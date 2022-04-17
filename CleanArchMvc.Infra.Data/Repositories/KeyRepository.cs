@@ -23,19 +23,23 @@ namespace CleanArchMvc.Infra.Data.Repositories
         {
             this.applicationContext.Keys.Add(keys);
             await this.applicationContext.SaveChangesAsync();
-            return keys;
+            var keysTemp = await this.applicationContext.Keys.FindAsync(keys.Id);
+            this.applicationContext.Dispose();
+            return keysTemp;
+            
         }
 
         public async Task<Keys> Delete(Keys keys)
         {
             this.applicationContext.Keys.Remove(keys);
             await this.applicationContext.SaveChangesAsync();
-            return keys;
+            var keysTemp = await this.applicationContext.Keys.FindAsync(keys.Id); ;
+            return keysTemp;
         }
 
         public async Task<Keys> GetById(int? id)
         {
-            return await this.applicationContext.Keys.FindAsync(id);
+            return await this.applicationContext.Keys.FirstAsync(x => x.Id == id);
         }
 
         public async Task<IEnumerable<Keys>> GetKeys()

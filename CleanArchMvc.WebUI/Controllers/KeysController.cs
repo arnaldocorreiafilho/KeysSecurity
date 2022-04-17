@@ -37,40 +37,58 @@ namespace CleanArchMvc.WebUI.Controllers
         // POST: ProductsController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(KeysDTO keys)
         {
             try            
             {
-                var keys = new KeysDTO(collection["Key"].ToString(),collection["Value"].ToString());                
-                this.keyService.Create(keys);
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+
+                    this.keyService.Create(keys);
+
+                }
                 
             }
             catch
             {
                 return View();
             }
+
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: ProductsController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(int? id)
         {
-            return View();
+            if (id == null)
+                return NotFound();
+
+            var keysDto = await this.keyService.GetById(id);
+
+            if (keysDto == null) return NotFound();
+
+            return View(keysDto);
         }
 
         // POST: ProductsController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult> Edit(KeysDTO keys)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+
+                    await this.keyService.Update(keys);
+
+                }
             }
             catch
             {
                 return View();
             }
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: ProductsController/Delete/5

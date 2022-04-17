@@ -25,7 +25,8 @@ namespace CleanArchMvc.Application.Services
 
             var keysEntity = this.mapper.Map<Keys>(keysDTO);
             keysEntity.GenerateHash();
-            var keysTemp = await this.KeysRepository.Create(keysEntity);
+            await this.KeysRepository.Create(keysEntity);
+            var keysTemp = await this.KeysRepository.GetById(keysEntity.Id);
             return this.mapper.Map<KeysDTO>(keysTemp);
 
         }
