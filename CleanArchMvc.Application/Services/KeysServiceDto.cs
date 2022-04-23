@@ -31,9 +31,9 @@ namespace CleanArchMvc.Application.Services
 
         }
 
-        public async Task<KeysDTO> Delete(KeysDTO keys)
+        public async Task<KeysDTO> Delete(int id)
         {
-            var keysEntity = this.KeysRepository.GetById(keys.Id).Result;
+            var keysEntity = this.KeysRepository.GetById(id).Result;
             var keysTemp = await this.KeysRepository.Delete(keysEntity);
             return this.mapper.Map<KeysDTO>(keysTemp);
         }

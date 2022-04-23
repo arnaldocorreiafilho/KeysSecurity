@@ -13,6 +13,6 @@ namespace CleanArchMvc.Application.Interfaces
         Task<KeysDTO> GetById(int? id);
         Task<KeysDTO> Create(KeysDTO keysDTO);
         Task<KeysDTO> Update(KeysDTO keysDTO);
-        Task<KeysDTO> Delete(KeysDTO keysDTO);
+        Task<KeysDTO> Delete(int id);
     }
 }

@@ -22,9 +22,17 @@ namespace CleanArchMvc.WebUI.Controllers
         }
 
         // GET: ProductsController/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Details(int? id)
         {
-            return View();
+            if (id == null)
+                return NotFound();
+
+            var keyDto = await keyService.GetById(id);
+
+            if (keyDto == null)
+                return NotFound();
+
+            return View(keyDto);
         }
 
         // GET: ProductsController/Create
@@ -92,18 +100,27 @@ namespace CleanArchMvc.WebUI.Controllers
         }
 
         // GET: ProductsController/Delete/5
-        public ActionResult Delete(int id)
+        [HttpGet()]
+        public async Task<ActionResult> Delete(int? id)
         {
-            return View();
+            if (id == null)
+                return NotFound();
+
+            var keysDto = await keyService.GetById(id);
+
+            if (keysDto == null) return NotFound();
+
+            return View(keysDto);
         }
 
         // POST: ProductsController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> Delete(int id, IFormCollection collection)
         {
             try
             {
+                await keyService.Delete(id);                
                 return RedirectToAction(nameof(Index));
             }
             catch
