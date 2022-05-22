@@ -42,6 +42,11 @@ namespace CleanArchMvc.Infra.Data.Repositories
             return await this.applicationContext.Keys.FirstAsync(x => x.Id == id);
         }
 
+        public async Task<Keys> GetByKey(string key)
+        {
+            return await this.applicationContext.Keys.FirstAsync(x => x.Key == key);
+        }
+
         public async Task<IEnumerable<Keys>> GetKeys()
         {
             return await this.applicationContext.Keys.ToListAsync();

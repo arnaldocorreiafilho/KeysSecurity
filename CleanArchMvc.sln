@@ -18,6 +18,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchMvc.Domain.Tests",
 		{841924C4-F03C-4658-948D-4E2F2D7856C2} = {841924C4-F03C-4658-948D-4E2F2D7856C2}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibKeys", "LibKeys\LibKeys.csproj", "{7472E7D1-94F6-4998-A63E-14BA5171EB4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{258F31FA-F336-4739-BDAF-FD37614B4394}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +52,14 @@ Global
 		{6014E072-8E14-4C61-90CE-85A1362E3786}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6014E072-8E14-4C61-90CE-85A1362E3786}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6014E072-8E14-4C61-90CE-85A1362E3786}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7472E7D1-94F6-4998-A63E-14BA5171EB4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7472E7D1-94F6-4998-A63E-14BA5171EB4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7472E7D1-94F6-4998-A63E-14BA5171EB4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7472E7D1-94F6-4998-A63E-14BA5171EB4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{258F31FA-F336-4739-BDAF-FD37614B4394}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{258F31FA-F336-4739-BDAF-FD37614B4394}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{258F31FA-F336-4739-BDAF-FD37614B4394}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{258F31FA-F336-4739-BDAF-FD37614B4394}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

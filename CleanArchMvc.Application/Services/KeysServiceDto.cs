@@ -44,7 +44,11 @@ namespace CleanArchMvc.Application.Services
             return this.mapper.Map<KeysDTO>(keysEntity);
         }
 
-      
+        public async Task<KeysDTO> GetByKey(string key)
+        {
+            var keysEntity = await this.KeysRepository.GetByKey(key);
+            return this.mapper.Map<KeysDTO>(keysEntity);
+        }
 
         public async Task<IEnumerable<KeysDTO>> GetKeys()
         {

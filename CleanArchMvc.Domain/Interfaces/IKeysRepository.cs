@@ -10,6 +10,7 @@ namespace CleanArchMvc.Domain.Interfaces
     public interface IKeysRepository
     {
         Task<IEnumerable<Keys>> GetKeys();
+        Task<Keys> GetByKey(String key);
         Task<Keys> GetById(int? id);
         Task<Keys> Create(Keys keys);
         Task<Keys> Update(Keys keys);

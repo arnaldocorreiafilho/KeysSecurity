@@ -13,7 +13,7 @@ namespace CleanArchMvc.Domain.Tests
         [Fact(DisplayName="Create Category with validState")]
         public void CreateCategory_WithValidParamenter_ResultValidState()
         {
-            var k = new Key("teste","valor");
+            var k = new Keys("teste","valor");
             k.GenerateHash();            
             Assert.Equal("23caf69ac2c62e21865d9ed78fe9f89f",k.Hash);
         }
