@@ -21,3 +21,5 @@ namespace CleanArchMvc.Infra.Data.Context
         }
     }
 }
+//dotnet ef database update -s /home/arnald0/projeto/KeysSecurity/CleanArchMvc.WebUI/ -p /home/arnald0/projeto/KeysSecurity/CleanArchMvc.Infra.Data/
+//<YourStrong@Passw0rd>
